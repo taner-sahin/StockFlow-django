@@ -1,0 +1,96 @@
+{% extends "base.html" %} 
+
+{% block title %}Home{% endblock %} 
+
+{% block content %}
+
+<!-- HERO -->
+<section id="home" class="py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <!-- LEFT -->
+      <div class="col-md-6">
+        <h1 class="fw-bold">Kozmetik Ürünleri Keşfet</h1>
+        <p class="text-muted">
+          Cilt, saç ve bakım ürünlerini kolayca incele ve keşfet.
+        </p>
+        <a href="#" class="btn btn-dark">Ürünleri Gör</a>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="col-md-6">
+        <img
+          src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9"
+          class="img-fluid rounded"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INFO BOX -->
+<section class="py-4 bg-light">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-md-4">
+        <h6 class="fw-bold">Hızlı Teslimat</h6>
+        <small class="text-muted">Siparişler hızlı ulaşır</small>
+      </div>
+
+      <div class="col-md-4">
+        <h6 class="fw-bold">7/24 Destek</h6>
+        <small class="text-muted">Her zaman yardım</small>
+      </div>
+
+      <div class="col-md-4">
+        <h6 class="fw-bold">Kaliteli Ürün</h6>
+        <small class="text-muted">Güvenilir alışveriş</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section id="categories" class="py-5">
+  <div class="container text-center">
+    <h2 class="fw-bold mb-4">Kategoriler</h2>
+    <div class="row g-3">
+      {% for category in categories %}
+      <div class="col-6 col-md-2">
+        <a
+          href="{% url 'products:category_products' category.slug %}"
+          class="text-decoration-none text-dark"
+        >
+          <div class="border rounded p-3">{{ category.name }}</div>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <h2 class="fw-bold text-center mb-4">Ürünler</h2>
+
+    <div class="row g-4">
+      {% for product in products %}
+      <div class="col-md-4">
+        <div class="card h-100">
+          <img src="{{ product.image.url }}" class="card-img-top" />
+
+          <div class="card-body">
+            <h5 class="card-title">{{ product.name }}</h5>
+            <p class="card-text text-muted">{{ product.price }} ₺</p>
+
+            <a href="#" class="btn btn-dark btn-sm">Detay</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% endblock %}
