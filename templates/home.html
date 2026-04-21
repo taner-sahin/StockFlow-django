@@ -76,7 +76,7 @@
 
     <div class="row g-4">
       {% for product in products %}
-      <div class="col-md-4">
+      <div class="col-md-3">
         <div class="card h-100">
           <img src="{{ product.image.url }}" class="card-img-top" />
 
@@ -84,7 +84,7 @@
             <h5 class="card-title">{{ product.name }}</h5>
             <p class="card-text text-muted">{{ product.price }} ₺</p>
 
-            <a href="#" class="btn btn-dark btn-sm">Detay</a>
+            <a href="{% url 'products:product_detail' product.slug %}" class="btn btn-dark btn-sm">Detay</a>
           </div>
         </div>
       </div>

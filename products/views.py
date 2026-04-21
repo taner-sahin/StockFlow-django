@@ -6,7 +6,7 @@ def category_products(request, slug):
     category = get_object_or_404(Category, slug=slug)
     products = Product.objects.filter(category=category, is_available=True)
 
-    return render(request, "products/category_products.html", {
+    return render(request, "products/category.html", {
         "category": category,
         "products": products,
     })
@@ -18,4 +18,11 @@ def home(request):
     return render(request, "home.html", {
         "categories": categories,
         "products": products,
+    })
+    
+def product_detail(request, slug):
+    product = get_object_or_404(Product, slug=slug, is_available=True)
+
+    return render(request, "products/detail.html", {
+        "product": product,
     })
