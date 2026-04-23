@@ -2,7 +2,7 @@
 
 {% block title %}Home{% endblock %} 
 
-{% block content %}
+{% block content%}
 
 <!-- HERO -->
 <section id="home" class="py-5">
@@ -76,19 +76,19 @@
 
     <div class="row g-4">
       {% for product in products %}
-      <div class="col-md-3">
+<div class="col-md-3 mb-4">
+    <a href="{% url 'products:product_detail' product.slug %}" class="text-decoration-none text-dark d-block h-100">
         <div class="card h-100">
-          <img src="{{ product.image.url }}" class="card-img-top" />
-
-          <div class="card-body">
-            <h5 class="card-title">{{ product.name }}</h5>
-            <p class="card-text text-muted">{{ product.price }} ₺</p>
-
-            <a href="{% url 'products:product_detail' product.slug %}" class="btn btn-dark btn-sm">Detay</a>
-          </div>
+            <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+            <div class="card-body">
+                <h5>{{ product.name }}</h5>
+                <p>{{ product.price }} ₺</p>
+                <span class="btn btn-dark">Detay</span>
+            </div>
         </div>
-      </div>
-      {% endfor %}
+    </a>
+</div>
+{% endfor %}
     </div>
   </div>
 </section>

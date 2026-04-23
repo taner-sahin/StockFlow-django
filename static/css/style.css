@@ -1,0 +1,12 @@
+td a {
+  transition: 0.2s;
+}
+
+td a:hover {
+  color: #0d6efd;
+}
+
+td img {
+  border-radius: 6px;
+  border: 1px solid #eee;
+}

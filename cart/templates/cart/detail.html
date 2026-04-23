@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}Sepetim{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4">Sepetim</h2>
+
+    {% if cart_items %}
+    <table class="table align-middle">
+        <thead>
+            <tr>
+                <th>Ürün</th>
+                <th>Fiyat</th>
+                <th>Adet</th>
+                <th>Toplam</th>
+                <th>İşlem</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in cart_items %}
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center gap-3">
+                        <img src="{{ item.product.image.url }}" width="60" alt="{{ item.product.name }}">
+
+                        <a href="{% url 'products:product_detail' item.product.slug %}"
+                           class="text-dark text-decoration-none">
+                            {{ item.product.name }}
+                        </a>
+                    </div>
+                </td>
+
+                <td>{{ item.product.price }} ₺</td>
+
+                <td>
+                    <a href="{% url 'cart:decrease_quantity' item.id %}"
+                       class="btn btn-sm btn-outline-dark">-</a>
+
+                    <span class="mx-2">{{ item.quantity }}</span>
+
+                    <a href="{% url 'cart:increase_quantity' item.id %}"
+                       class="btn btn-sm btn-outline-dark">+</a>
+                </td>
+
+                <td>{{ item.get_total_price }} ₺</td>
+
+                <td>
+                    <a href="{% url 'cart:remove_from_cart' item.id %}"
+                       class="btn btn-sm btn-danger">
+                        Sil
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h4 class="mt-4">Genel Toplam: {{ total_price }} ₺</h4>
+    {% else %}
+    <p>Sepetiniz boş.</p>
+    {% endif %}
+</div>
+{% endblock %}

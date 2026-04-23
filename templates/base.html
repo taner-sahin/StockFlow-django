@@ -64,7 +64,13 @@
               <a class="nav-link" href="{% url 'home' %}#products">Products</a>
             </li>
           </ul>
-
+          {% if messages %}
+          <div class="container mt-3">
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+            {% endfor %}
+          </div>
+          {% endif %}
           <!-- RIGHT SIDE -->
           <div class="d-flex gap-3 align-items-center">
             {% if user.is_authenticated %}
@@ -75,7 +81,9 @@
             <a href="{% url 'register' %}" class="text-dark">Kayıt Ol</a>
             {% endif %}
 
-            <a href="#"><i class="bi bi-bag"></i></a>
+            <a href="{% url 'cart:cart_detail' %}">
+              <i class="bi bi-bag"></i> Sepet ({{ cart_count }})
+            </a>
           </div>
         </div>
       </div>
