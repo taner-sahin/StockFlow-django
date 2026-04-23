@@ -70,6 +70,7 @@ TEMPLATES = [
                 
                 'products.context_processors.nav_categories',
                 'cart.context_processors.cart_count',
+                'orders.context_processors.order_count',
             ],
         },
     },

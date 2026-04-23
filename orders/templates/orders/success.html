@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}Sipariş Başarılı{% endblock %}
+
+{% block content %}
+<div class="container mt-5 text-center">
+    <h2>Siparişiniz başarıyla oluşturuldu 🎉</h2>
+    <p class="mt-3">Siparişiniz alındı. En kısa sürede hazırlanacaktır.</p>
+    <a href="{% url 'home' %}" class="btn btn-dark mt-3">Alışverişe Devam Et</a>
+</div>
+{% endblock %}

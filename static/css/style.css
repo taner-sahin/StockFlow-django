@@ -10,3 +10,18 @@ td img {
   border-radius: 6px;
   border: 1px solid #eee;
 }
+
+h1 {
+    font-size: 22px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.features {
+    padding: 20px 10px;
+    font-size: 14px;
+}

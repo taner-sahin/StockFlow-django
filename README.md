@@ -1,63 +1,102 @@
-# StockFlow
+📦 StockFlow
 
-Backend-focused Django e-commerce project built to practice stock-based shopping flow logic.
+Gerçek dünya e-ticaret sistemlerinde kullanılan stok yönetimi, sipariş akışı ve veritabanı tabanlı sepet mimarisini uygulamak amacıyla geliştirilmiş, backend odaklı bir Django projesidir.
 
-## About
+🧠 Hakkında
 
-StockFlow is the 3rd project in my Django e-commerce roadmap.
-This project focuses on building a stock-aware shopping system with backend-first logic.
+StockFlow, bir e-ticaret sisteminin en kritik katmanı olan stok kontrolünü ele alır.
 
-## Current Features
+Bu projede:
 
-- Authentication system (login / register / logout)
-- Dynamic navbar
-- Dynamic homepage
-- Category-based product listing on homepage
-- Product and category models
-- Admin panel integration
-- Product image support
-- Stock field added to product model
-- Product data entered from admin panel
+Sepet → Sipariş → Stok düşme akışı
+Aynı üründen fazla eklemeyi engelleme
+Sipariş sonrası stok güncelleme
+Kullanıcı bazlı veri yönetimi
 
-## Backend Focus
+tamamen backend mantığıyla ele alınmıştır.
 
-This project is being built with a backend-first approach.
+⚙️ Temel Özellikler
+Kimlik doğrulama sistemi (Login / Register / Logout)
+Dinamik navbar (kategori + sepet + sipariş sayısı)
+Dinamik ana sayfa
+Kategori bazlı ürün filtreleme
+Ürün detay sayfası (slug yapısı)
+🛒 Cart Sistemi (DB Tabanlı)
+Veritabanı tabanlı cart yapısı
+Sepete ekleme / artırma / azaltma / silme
+Aynı ürün tekrar eklenmez → miktar artar
+Kullanıcı bazlı sepet yönetimi
+Navbar’da dinamik cart count
+📦 Order Sistemi
+Order modeli
+OrderItem modeli
+Snapshot mantığı (ürün adı ve fiyatı saklanır)
+Checkout (cart → order dönüşümü)
+Sipariş sonrası cart temizleme
+📊 Sipariş Yönetimi
+“Siparişlerim” sayfası
+Sipariş detay sayfası
+Sipariş durumları:
+pending
+preparing
+shipped
+delivered
+Navbar’da dinamik sipariş sayısı
+Sipariş istatistik kartları
+🔥 Backend Özelliklerinden Öne Çıkanlar
+Stok kontrolü cart seviyesinde yapılır
+Ürün stoktan fazla sepete eklenemez
+Checkout sırasında stok otomatik düşer
+Sepet ve sipariş işlemleri sadece giriş yapan kullanıcıya açıktır
+Kullanıcı sadece kendi siparişlerini görebilir
+ID Mantığı
+product_id → sepete ekleme
+cart_item_id → artır / azalt / sil işlemleri
+🔄 Sipariş Akışı
+Kullanıcı giriş yapar
+Ürün sepete eklenir
+Sepet veritabanında tutulur
+Kullanıcı checkout yapar
+Sipariş oluşturulur
+OrderItem’lar oluşturulur (snapshot alınır)
+Toplam hesaplanır
+Stok düşürülür
+Sepet temizlenir
+🧱 Teknoloji Yığını
+Python
+Django
+Bootstrap
+SQLite
+📁 Proje Yapısı
+products → ürün listeleme, kategori filtreleme, detay
+cart → DB tabanlı sepet sistemi
+orders → sipariş oluşturma, checkout, sipariş geçmişi
+Template Yapısı
+Global templates (base, home)
+App bazlı templates
+Component mantığı
+🎯 Öğrendiklerim
+DB tabanlı cart sistemi kurma
+Stok kontrolü mantığı
+Sipariş akışı tasarlama
+Snapshot (anlık veri) mantığı
+Backend-first proje geliştirme
+Kullanıcı bazlı veri güvenliği
+Context processor ile global veri yönetimi
+📌 Durum
 
-Main goal:
-- understand model → view → template flow
-- practice admin-based data management
-- prepare for stock-aware cart and order system
+✅ Backend çekirdeği tamamlandı
+✅ Gerçek e-ticaret akışı başarıyla kuruldu
 
-## Technologies
+StockFlow projesi, e-ticaret sistemlerinde kritik olan stok yönetimi katmanını başarıyla uygulayan bir backend projesi olarak tamamlanmıştır.
 
-- Python
-- Django
-- Bootstrap 5
-- SQLite
+🗺️ Yol Haritası
+Proje 1 → StepCart
+Proje 2 → OrderCore
+Proje 3 → StockFlow ✅
+Proje 4 → CouponCart (Kupon Sistemi) ⏳
+👨‍💻 Yazar
 
-## Project Status
+Taner Şahin
+GitHub: https://github.com/TanerSahin19
 
-Current stage:
-- Project setup completed
-- Auth completed
-- Product & Category models completed
-- Admin integration completed
-- Dynamic navbar completed
-- Dynamic home completed
-
-Next step:
-- Category filter
-- Product detail
-- Cart system
-- Stock control logic
-
-## Roadmap Position
-
-- Project 1 → StepCart ✅
-- Project 2 → OrderCore ✅
-- Project 3 → StockFlow 🔄
-
-## Author
-
-Taner Şahin  
-GitHub: TanerSahin19
