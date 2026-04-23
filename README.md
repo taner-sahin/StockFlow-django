@@ -1,102 +1,89 @@
 📦 StockFlow
 
-Gerçek dünya e-ticaret sistemlerinde kullanılan stok yönetimi, sipariş akışı ve veritabanı tabanlı sepet mimarisini uygulamak amacıyla geliştirilmiş, backend odaklı bir Django projesidir.
+A backend-focused Django e-commerce project built to simulate real-world shopping flow, including stock management, database-driven cart system, and order processing.
 
-🧠 Hakkında
+🧠 About
 
-StockFlow, bir e-ticaret sisteminin en kritik katmanı olan stok kontrolünü ele alır.
+StockFlow focuses on one of the most critical parts of an e-commerce system: stock management.
 
-Bu projede:
+This project implements a complete backend flow:
 
-Sepet → Sipariş → Stok düşme akışı
-Aynı üründen fazla eklemeyi engelleme
-Sipariş sonrası stok güncelleme
-Kullanıcı bazlı veri yönetimi
-
-tamamen backend mantığıyla ele alınmıştır.
-
-⚙️ Temel Özellikler
-Kimlik doğrulama sistemi (Login / Register / Logout)
-Dinamik navbar (kategori + sepet + sipariş sayısı)
-Dinamik ana sayfa
-Kategori bazlı ürün filtreleme
-Ürün detay sayfası (slug yapısı)
-🛒 Cart Sistemi (DB Tabanlı)
-Veritabanı tabanlı cart yapısı
-Sepete ekleme / artırma / azaltma / silme
-Aynı ürün tekrar eklenmez → miktar artar
-Kullanıcı bazlı sepet yönetimi
-Navbar’da dinamik cart count
-📦 Order Sistemi
-Order modeli
-OrderItem modeli
-Snapshot mantığı (ürün adı ve fiyatı saklanır)
-Checkout (cart → order dönüşümü)
-Sipariş sonrası cart temizleme
-📊 Sipariş Yönetimi
-“Siparişlerim” sayfası
-Sipariş detay sayfası
-Sipariş durumları:
+Product → Cart → Order → Stock update
+Preventing adding more items than available stock
+Automatic stock reduction after checkout
+User-based data isolation
+⚙️ Core Features
+🔐 Authentication
+User registration / login / logout
+Protected cart and order operations
+🧭 Dynamic Structure
+Dynamic navbar (categories, cart count, order count)
+Dynamic homepage
+Category-based product filtering
+Product detail pages (slug-based)
+🛒 Cart System (Database-Based)
+Fully database-driven cart system
+Add / increase / decrease / remove items
+Same product does not create a new row → quantity increases
+User-specific cart logic
+Dynamic cart count in navbar
+📦 Order System
+Order model
+OrderItem model
+Snapshot logic (stores product name & price at purchase time)
+Checkout system (cart → order conversion)
+Automatic cart cleanup after checkout
+📊 Order Management
+"My Orders" page
+Order detail page
+Order status system:
 pending
 preparing
 shipped
 delivered
-Navbar’da dinamik sipariş sayısı
-Sipariş istatistik kartları
-🔥 Backend Özelliklerinden Öne Çıkanlar
-Stok kontrolü cart seviyesinde yapılır
-Ürün stoktan fazla sepete eklenemez
-Checkout sırasında stok otomatik düşer
-Sepet ve sipariş işlemleri sadece giriş yapan kullanıcıya açıktır
-Kullanıcı sadece kendi siparişlerini görebilir
-ID Mantığı
-product_id → sepete ekleme
-cart_item_id → artır / azalt / sil işlemleri
-🔄 Sipariş Akışı
-Kullanıcı giriş yapar
-Ürün sepete eklenir
-Sepet veritabanında tutulur
-Kullanıcı checkout yapar
-Sipariş oluşturulur
-OrderItem’lar oluşturulur (snapshot alınır)
-Toplam hesaplanır
-Stok düşürülür
-Sepet temizlenir
-🧱 Teknoloji Yığını
+Dynamic order count in navbar
+Order statistics dashboard
+🔥 Backend Highlights
+Stock control enforced at cart level
+Users cannot add more items than available stock
+Stock is automatically reduced after checkout
+Only authenticated users can access cart and orders
+Users can only view their own orders
+🔄 Order Flow
+User logs in
+Adds products to cart
+Cart items are stored in database
+User proceeds to checkout
+Order is created
+OrderItems are generated (with snapshot data)
+Total price is calculated
+Stock is reduced
+Cart is cleared
+🧱 Tech Stack
 Python
 Django
 Bootstrap
 SQLite
-📁 Proje Yapısı
-products → ürün listeleme, kategori filtreleme, detay
-cart → DB tabanlı sepet sistemi
-orders → sipariş oluşturma, checkout, sipariş geçmişi
-Template Yapısı
+📁 Project Structure
+products → product listing, filtering, detail pages
+cart → database-based cart system
+orders → order creation, checkout, order history
+Templates
 Global templates (base, home)
-App bazlı templates
-Component mantığı
-🎯 Öğrendiklerim
-DB tabanlı cart sistemi kurma
-Stok kontrolü mantığı
-Sipariş akışı tasarlama
-Snapshot (anlık veri) mantığı
-Backend-first proje geliştirme
-Kullanıcı bazlı veri güvenliği
-Context processor ile global veri yönetimi
-📌 Durum
+App-based templates
+Component-based structure
+🎯 What I Learned
+Building a database-driven cart system
+Designing an order architecture
+Implementing stock management logic
+Using snapshot data in e-commerce systems
+Connecting cart flow to checkout process
+Managing user-based data securely
+Using context processors for global data
+Thinking in a backend-first approach
+📌 Status
 
-✅ Backend çekirdeği tamamlandı
-✅ Gerçek e-ticaret akışı başarıyla kuruldu
+✅ Backend core completed
+✅ Full e-commerce flow implemented
 
-StockFlow projesi, e-ticaret sistemlerinde kritik olan stok yönetimi katmanını başarıyla uygulayan bir backend projesi olarak tamamlanmıştır.
-
-🗺️ Yol Haritası
-Proje 1 → StepCart
-Proje 2 → OrderCore
-Proje 3 → StockFlow ✅
-Proje 4 → CouponCart (Kupon Sistemi) ⏳
-👨‍💻 Yazar
-
-Taner Şahin
-GitHub: https://github.com/TanerSahin19
-
+StockFlow is completed as a backend-focused project that successfully simulates a real-world e-commerce system.
