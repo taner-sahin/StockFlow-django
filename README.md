@@ -110,7 +110,7 @@ StockFlow is completed as a backend-focused project that simulates a real-world 
 ## Author
 
 **Taner Sahin**  
-GitHub: https://github.com/TanerSahin19
+GitHub: https://github.com/taner-sahin
 
 ## Final Note
 
